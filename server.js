@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import express from "express";
-import dotenv from "dotenv";
 import productRoute from './routes/productRoutes.js'
 import orderRoute from "./routes/orderRoutes.js";
 import userRoute from './routes/userRoutes.js'

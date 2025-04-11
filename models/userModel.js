@@ -6,3 +6,6 @@ export async function createUser(user) {
     return await usersDB.insert(user)
 }
 
+export async function getUserByEmail(email) {
+    return await usersDB.findOne({ email })
+}
