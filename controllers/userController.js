@@ -12,6 +12,7 @@ export async function addUser(req, res) {
   const user = {
     id: uuidv4(),
     ...value,
+    createdAt: new Date().toISOString(),
   };
 
   try {
