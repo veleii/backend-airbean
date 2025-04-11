@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { createOrder } from "../models/orderModel";
 
 const router = Router();
 
@@ -6,9 +7,7 @@ router.get("/", (req, res) => {
   res.send("Hämta orders");
 });
 
-router.post("/", (req, res) => {
-  res.send("Skapa en ny order");
-});
+router.post("/order", createOrder);
 
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
