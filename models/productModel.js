@@ -1,17 +1,8 @@
 // funktioner för att hantera produktdata
-
-/* import Joi from "joi"; */
 import Datastore from "nedb-promise";
 import fs from "fs/promises";
-import path, { resolve } from "path";
+import path from "path";
 import { fileURLToPath } from "url";
-
-/* const productSchema = Joi.object({
-  id: Joi.integer().positive().required(),
-  name: Joi.string().required(),
-  description: Joi.string().required(),
-  price: Joi.integer().positive().required(),
-}); */
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

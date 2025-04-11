@@ -3,7 +3,15 @@ import { Router } from "express";
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.send("Hämta orders");
+  res.send("Hämta alla orders");
+});
+
+router.get("/user", (req, res) => {
+  res.send("Hämta alla orders för en specifik användare");
+});
+
+router.get("/:id", (req, res) => {
+  res.send("Hämta en specifik orders");
 });
 
 router.post("/", (req, res) => {

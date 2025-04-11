@@ -20,6 +20,7 @@ const startServer = async () => {
   try {
     await seedDatabase();
     console.log('Databasen är seedad, startar servern...');
+    
     app.listen(port, () => {
       console.log(`Servern körs på ${port}`);
     });
