@@ -1,15 +1,15 @@
 import { Router } from "express";
-import fs from "fs";
-import path from "path";
+import { getMenu } from "../models/productModel.js";
 
 const router = Router();
 
-const productsPath = path.resolve("db", "products.json");
-
-const products = JSON.parse(fs.readFileSync(productsPath, "utf8"));
-
-router.get("/", (req, res) => {
-  res.json(products);
+router.get("/", async (req, res) => {
+  try {
+    const products = await getMenu()
+    res.json(products);
+  } catch (error) {
+    res.status(500).json({ error : 'Fel vid hämtning av menyn'})
+  }
 });
 
 export default router;

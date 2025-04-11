@@ -1,8 +1,10 @@
 import dotenv from "dotenv";
 import express from "express";
-import userRoutes from "./routes/userRoutes.js"; // 👈 DENNA MÅSTE FINNAS
-
-/* import { v4 as uuidv4 } from "uuid"; */
+import dotenv from "dotenv";
+import productRoute from './routes/productRoutes.js'
+import orderRoute from "./routes/orderRoutes.js";
+import userRoute from './routes/userRoutes.js'
+import { seedDatabase } from "./models/productModel.js";
 
 dotenv.config();
 const app = express();
@@ -10,10 +12,22 @@ app.use(express.json());
 
 const port = process.env.PORT || 3030;
 
-/* app.use("/products", productsRoute); */
-/* app.use("/orders", ordersRoute); */
-app.use("/users", userRoutes); 
+app.use("/products", productRoute);
+app.use("/orders", orderRoute);
+app.use("/users", userRoute);
 
-app.listen(port, () => {
-  console.log(`Servern körs på ${port}`);
-});
+const startServer = async () => {
+  try {
+    await seedDatabase();
+    console.log('Databasen är seedad, startar servern...');
+    app.listen(port, () => {
+      console.log(`Servern körs på ${port}`);
+    });
+  } catch (error) {
+    console.error('Fel vid seeding av databasen:', error);
+  }
+};
+
+startServer();
+
+
