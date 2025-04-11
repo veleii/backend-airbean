@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
 
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  res.send(`Ta bort användare ${id}`);
+  res.send(`Ta bort användare med id: ${id}`);
 });
 
 export default router;

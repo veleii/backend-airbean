@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
 
 router.delete("/:id", (req, res) => {
   const { id } = req.params;
-  res.send(`Ta bort order ${id}`);
+  res.send(`Ta bort order med id: ${id}`);
 });
 
 export default router;
