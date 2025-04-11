@@ -1,10 +1,10 @@
-{"id":1,"name":"Espresso","price":28,"description":"En liten men stark kaffe med intensiv smak.","_id":"qDibQN8y1mv2dHyU"}
-{"id":2,"name":"Cappuccino","price":34,"description":"Espresso med varm mjölk och ett skumtäcke.","_id":"xes81THIYKOwqKv3"}
-{"id":3,"name":"Latte","price":36,"description":"Mild kaffe med mycket varm mjölk.","_id":"coDGcJHemUbMjSid"}
-{"id":4,"name":"Americano","price":30,"description":"Espresso utspädd med hett vatten.","_id":"PgCkcZWlatgqEn69"}
-{"id":5,"name":"Macchiato","price":32,"description":"Espresso med en liten skvätt mjölkskum.","_id":"jPtT18pwXXxAMolI"}
-{"id":6,"name":"Flat White","price":35,"description":"Silkeslen mjölkkaffe med kraftig kaffesmak.","_id":"fkJU7E7bMqiUk4K4"}
 {"id":7,"name":"Mocha","price":38,"description":"Latte med choklad och vispad grädde.","_id":"0K8WyrBUzk7kqlfG"}
-{"id":8,"name":"Iskaffe","price":33,"description":"Kallbryggt kaffe serverat med is.","_id":"ipHg8dAyQox0m7jM"}
-{"id":9,"name":"Bryggkaffe","price":26,"description":"Klassiskt svenskt bryggkaffe – enkelt och gott.","_id":"vUvLVkkSLc9cTSDO"}
+{"id":4,"name":"Americano","price":30,"description":"Espresso utspädd med hett vatten.","_id":"PgCkcZWlatgqEn69"}
 {"id":10,"name":"Cold Brew","price":37,"description":"Kallbryggd under flera timmar för rund smak.","_id":"Tq8qB4euquqjoEPj"}
+{"id":3,"name":"Latte","price":36,"description":"Mild kaffe med mycket varm mjölk.","_id":"coDGcJHemUbMjSid"}
+{"id":6,"name":"Flat White","price":35,"description":"Silkeslen mjölkkaffe med kraftig kaffesmak.","_id":"fkJU7E7bMqiUk4K4"}
+{"id":8,"name":"Iskaffe","price":33,"description":"Kallbryggt kaffe serverat med is.","_id":"ipHg8dAyQox0m7jM"}
+{"id":5,"name":"Macchiato","price":32,"description":"Espresso med en liten skvätt mjölkskum.","_id":"jPtT18pwXXxAMolI"}
+{"id":1,"name":"Espresso","price":28,"description":"En liten men stark kaffe med intensiv smak.","_id":"qDibQN8y1mv2dHyU"}
+{"id":9,"name":"Bryggkaffe","price":26,"description":"Klassiskt svenskt bryggkaffe – enkelt och gott.","_id":"vUvLVkkSLc9cTSDO"}
+{"id":2,"name":"Cappuccino","price":34,"description":"Espresso med varm mjölk och ett skumtäcke.","_id":"xes81THIYKOwqKv3"}

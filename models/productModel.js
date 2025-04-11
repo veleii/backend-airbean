@@ -23,16 +23,16 @@ const db = new Datastore({
 
 export const seedDatabase = async () => {
   try {
-    const count = await db.count({})
+    const count = await db.count({});
     console.log("Antal produkter före seeding:", count);
 
     if (count === 0) {
       const seedFile = path.join(__dirname, "..", "db", "products.json");
       const data = await fs.readFile(seedFile, "utf8");
-      const {coffeeMenu} = JSON.parse(data);
+      const { coffeeMenu } = JSON.parse(data);
 
-      const insertedDocs =  await db.insert(coffeeMenu) 
-    
+      const insertedDocs = await db.insert(coffeeMenu);
+
       console.log("seed-data importerad: ", insertedDocs);
     }
   } catch (error) {
@@ -41,10 +41,11 @@ export const seedDatabase = async () => {
 };
 
 export const getMenu = async () => {
-    try {
-        const products = await db.find({})
-        return products;
-    } catch (error) {
-        throw new Error('Fel vid hämtning av produkter: ' + error.message)
-    }
+  try {
+    const products = await db.find({});
+    const sortedProducts = products.sort((a, b) => a.id - b.id);
+    return sortedProducts;
+  } catch (error) {
+    throw new Error("Fel vid hämtning av produkter: " + error.message);
+  }
 };
