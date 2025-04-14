@@ -31,6 +31,7 @@ export const seedDatabase = async () => {
   }
 };
 
+
 export const getMenu = async () => {
   try {
     const products = await db.find({});
