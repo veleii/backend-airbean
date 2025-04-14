@@ -1,16 +1,18 @@
 import { Router } from "express";
-import { addUser } from "../controllers/userController.js";
+import { addUser, loginUser, getCurrentOrder, getOrderHistory } from "../controllers/userController.js";
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send("Hämta användare");
-});
+//Skapa användare
+router.post("/user/signup", addUser);
 
-router.post("/", addUser);
+//Logga in användare
+router.post("/user/signin", loginUser);
 
-router.delete("/:id", (req, res) => {
-  const { id } = req.params;
-  res.send(`Ta bort användare med id: ${id}`);
-});
+//Hämta aktiv order
+router.get("/user/status", getCurrentOrder);
+
+//Hämta orderhistorik
+router.get("/user/history", getOrderHistory);
+
 
 export default router;

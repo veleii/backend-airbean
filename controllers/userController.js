@@ -1,7 +1,14 @@
 import { userSchema } from "../middlewares/validation.js";
 import { v4 as uuidv4 } from "uuid";
-import { createUser } from "../models/userModel.js";
+import {
+  createUser,
+  getUserByEmail,
+  fetchUser,
+  fetchCurrentOrder,
+  fetchOrderHistory,
+} from "../models/userModel.js";
 
+//Skapa användare
 export async function addUser(req, res) {
   const { error, value } = userSchema.validate(req.body);
   if (error) {
@@ -9,16 +16,40 @@ export async function addUser(req, res) {
     return res.status(400).json({ errors });
   }
 
-  const user = {
-    id: uuidv4(),
-    ...value,
-    createdAt: new Date().toISOString(),
-  };
-
   try {
+    const existingUser = await getUserByEmail(value.email);
+    if (existingUser) {
+      return res
+        .status(409)
+        .json({ error: "Denna e-postadress finns redan registrerad" });
+    }
+
+    const user = {
+      id: uuidv4(),
+      ...value,
+      createdAt: new Date().toISOString(),
+    };
+
     const savedUser = await createUser(user);
     res.status(201).json(savedUser);
   } catch (err) {
     res.status(500).json({ error: "Kunde inte spara användare" });
   }
 }
+
+//Logga in användare
+export const loginUser = async (req, res) => {
+  try {
+  } catch (error) {}
+};
+
+//Hämta aktiv order
+export const getCurrentOrder = async (req, res) => {
+  try {
+  } catch (error) {}
+};
+//Hämta orderhistorik
+export const getOrderHistory = async (req, res) => {
+  try {
+  } catch (error) {}
+};
