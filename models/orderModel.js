@@ -12,7 +12,7 @@ const orderDb = new Datastore({
 });
 
 
-
+//Skapa order
 export const createOrder = async (order) => {
   try {
     const newOrder = await orderDb.insert(order);
@@ -22,6 +22,7 @@ export const createOrder = async (order) => {
   }
 };
 
+//Hämta order
 export const fetchOrderById = async (orderNr) => {
   try {
     const order = await orderDb.findOne({ orderNr });

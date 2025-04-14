@@ -1,5 +1,6 @@
 import { fetchCompanyInfo } from "../models/infoModel";
 
+//Hämta företaginfo
 export const getCompanyInfo = async (req, res) => {
     try {
         const companyInfo = await fetchCompanyInfo();
