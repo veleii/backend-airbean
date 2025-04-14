@@ -7,11 +7,12 @@ export const createUser = async (user) => {
     return await usersDB.insert(user)
 }
 
-export async function getUserByEmail(email) {
+//Logga in användare eller jämföra användare vid skapandet av ny
+export async function fetchUserByEmail(email) {
     return await usersDB.findOne({ email })
 }
 
-//Logga in användare
+
 export const fetchUser = async () => {
 
 }

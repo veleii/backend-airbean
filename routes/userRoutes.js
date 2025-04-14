@@ -3,16 +3,16 @@ import { addUser, loginUser, getCurrentOrder, getOrderHistory } from "../control
 const router = Router();
 
 //Skapa användare
-router.post("/user/signup", addUser);
+router.post("/signup", addUser);
 
 //Logga in användare
-router.post("/user/signin", loginUser);
+router.post("/signin", loginUser);
 
 //Hämta aktiv order
-router.get("/user/status", getCurrentOrder);
+router.get("/status", getCurrentOrder);
 
 //Hämta orderhistorik
-router.get("/user/history", getOrderHistory);
+router.get("/history", getOrderHistory);
 
 
 export default router;
