@@ -13,7 +13,7 @@ const port = process.env.PORT || 3030;
 
 app.use("/products", productRoute);
 app.use("/orders", orderRoute);
-app.use("/users", userRoute);
+app.use("/user", userRoute);
 
 const startServer = async () => {
   try {
