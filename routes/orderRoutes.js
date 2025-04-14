@@ -1,20 +1,11 @@
 import { Router } from "express";
-
+import { addOrder, getOrderById } from "../controllers/orderController.js"
 const router = Router();
 
-router.get("/", (req, res) => {
-  res.send("Hämta alla orders");
-});
+router.post("/order", addOrder)
 
 
-
-router.get("/:id", (req, res) => {
-  res.send("Hämta en specifik orders");
-});
-
-router.post("/", (req, res) => {
-  res.send("Skapa en ny order");
-});
+router.get("/:id", getOrderById)
 
 
 export default router;
