@@ -15,7 +15,7 @@ const productsDb = new Datastore({
 //Seeda databas från json-filen
 export const seedDatabase = async () => {
   try {
-    const count = await db.count({});
+    const count = await productsDb.count({});
     console.log("Antal produkter före seeding:", count);
 
     if (count === 0) {

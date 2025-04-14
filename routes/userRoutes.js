@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { addUser, loginUser, getCurrentOrder, getOrderHistory } from "../controllers/userController.js";
+import { addUser, loginUser } from "../controllers/userController.js";
 const router = Router();
 
 //Skapa användare

@@ -1,9 +1,9 @@
 import { Router } from 'express'
-import { getCompanyInfo } from '../controllers/infoController';
+import { getCompanyInfo } from '../controllers/infoController.js';
 
 const router = Router()
 
 //Hämta företagsinfo
-router.get('/info', getCompanyInfo)
+router.get('/', getCompanyInfo)
 
 export default router;
