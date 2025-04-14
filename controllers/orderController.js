@@ -1,7 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
-import { createOrder, fetchOrderById } from "../models/orderModel";
-import { fetchMenu } from "../models/productModel";
+import { createOrder, fetchOrderById } from "../models/orderModel.js";
+import { fetchMenu } from "../models/productModel.js";
 
+//Skapa order
 export const addOrder = async (req, res) => {
   const { totalOrder } = req.body;
   if (!totalOrder || !Array.isArray(totalOrder) || totalOrder.length === 0) {
@@ -53,7 +54,7 @@ export const addOrder = async (req, res) => {
     res.status(500).json({ error: "Kunde inte skapa order." });
   }
 };
-
+//Hämta order genom ID (och token)
 export const getOrderById = async (req, res) => {
   const { orderNr } = req.params;
   try {
@@ -66,4 +67,10 @@ export const getOrderById = async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: "Kunde inte hämta ordern."})
   }
+};
+
+//Hämta orderhistorik för användare
+export const getOrderHistory = async (req, res) => {
+  try {
+  } catch (error) {}
 };

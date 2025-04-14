@@ -1,5 +1,6 @@
 import { fetchMenu } from "../models/productModel.js";
 
+//Hämta meny
 export const getMenu = async (req, res) => {
   try {
     const menu = await fetchMenu();

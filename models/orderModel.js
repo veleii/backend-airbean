@@ -1,5 +1,4 @@
 import Datastore from "nedb-promises";
-import fs from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -12,7 +11,7 @@ const orderDb = new Datastore({
 });
 
 
-
+//Skapa order
 export const createOrder = async (order) => {
   try {
     const newOrder = await orderDb.insert(order);
@@ -22,6 +21,7 @@ export const createOrder = async (order) => {
   }
 };
 
+//Hämta order
 export const fetchOrderById = async (orderNr) => {
   try {
     const order = await orderDb.findOne({ orderNr });

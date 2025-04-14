@@ -1,11 +1,16 @@
 import { Router } from "express";
-import { addOrder, getOrderById } from "../controllers/orderController.js"
+import { addOrder, getOrderById, getOrderHistory } from "../controllers/orderController.js";
+import authMiddleware from "../middlewares/auth.js";
+
 const router = Router();
 
-router.post("/order", addOrder)
+//Skapa order
+router.post("/order", authMiddleware, addOrder);
 
+//Hämta aktiv order
+router.get("/:id", authMiddleware, getOrderById);
 
-router.get("/:id", getOrderById)
-
+//Hämta orderhistorik
+router.get("/history", getOrderHistory);
 
 export default router;

@@ -12,9 +12,10 @@ const productsDb = new Datastore({
   autoload: true,
 });
 
+//Seeda databas från json-filen
 export const seedDatabase = async () => {
   try {
-    const count = await db.count({});
+    const count = await productsDb.count({});
     console.log("Antal produkter före seeding:", count);
 
     if (count === 0) {
@@ -31,6 +32,7 @@ export const seedDatabase = async () => {
   }
 };
 
+//Hämta meny
 export const fetchMenu = async () => {
   try {
     const products = await productsDb.find({});

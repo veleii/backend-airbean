@@ -2,13 +2,7 @@ import { userSchema } from "../middlewares/validation.js";
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import {
-  createUser,
-  fetchUserByEmail,
-  fetchUser,
-  fetchCurrentOrder,
-  fetchOrderHistory,
-} from "../models/userModel.js";
+import { createUser, fetchUserByEmail } from "../models/userModel.js";
 
 //Skapa användare
 export async function addUser(req, res) {
@@ -61,32 +55,27 @@ export const loginUser = async (req, res) => {
       { expiresIn: "3h" }
     );
 
-    res.json({ 
+    res.json({
       success: true,
       message: "Inloggningen lyckades",
       data: {
         user: {
           id: user.id,
-          username: user.name,   
-          email: user.email
+          username: user.name,
+          email: user.email,
         },
         accessToken: token,
-        expiresIn: "3h" 
-      }
-     });
+        expiresIn: "3h",
+      },
+    });
   } catch (error) {
     console.error("Inloggningsfel: ", error);
-    res.status(500).json({ error: "Något gick fel vid inloggningen."})
+    res.status(500).json({ error: "Något gick fel vid inloggningen." });
   }
 };
 
 //Hämta aktiv order
 export const getCurrentOrder = async (req, res) => {
-  try {
-  } catch (error) {}
-};
-//Hämta orderhistorik
-export const getOrderHistory = async (req, res) => {
   try {
   } catch (error) {}
 };
