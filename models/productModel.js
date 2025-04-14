@@ -7,8 +7,13 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const db = new Datastore({
+const productsDb = new Datastore({
   filename: path.join(__dirname, "..", "db", "products.db"),
+  autoload: true,
+});
+
+const orderDb = new Datastore({
+  filename: path.join(__dirname, "..", "db", "orders.db"),
   autoload: true,
 });
 
@@ -31,13 +36,30 @@ export const seedDatabase = async () => {
   }
 };
 
-
-export const getMenu = async () => {
+export const fetchMenu = async () => {
   try {
-    const products = await db.find({});
+    const products = await productsDb.find({});
     const sortedProducts = products.sort((a, b) => a.id - b.id);
     return sortedProducts;
   } catch (error) {
     throw new Error("Fel vid hämtning av produkter: " + error.message);
+  }
+};
+
+export const createOrder = async (order) => {
+  try {
+    const newOrder = await orderDb.insert(order);
+    return newOrder;
+  } catch (error) {
+    throw new Error("Kunde inte spara odern: " + error.message);
+  }
+};
+
+export const fetchOrderById = async (orderNr) => {
+  try {
+    const order = await orderDb.findOne({ orderNr });
+    return order;
+  } catch (error) {
+    throw new Error("Kunde inte hämta order: " + error.message);
   }
 };
