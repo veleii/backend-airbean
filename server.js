@@ -3,6 +3,7 @@ import express from "express";
 import productRoute from './routes/productRoutes.js'
 import orderRoute from "./routes/orderRoutes.js";
 import userRoute from './routes/userRoutes.js'
+import infoRoute from './routes/infoRoutes.js'
 import { seedDatabase } from "./models/productModel.js";
 
 dotenv.config();
@@ -14,6 +15,7 @@ const port = process.env.PORT || 3030;
 app.use("/products", productRoute);
 app.use("/orders", orderRoute);
 app.use("/user", userRoute);
+app.use("/info", infoRoute)
 
 const startServer = async () => {
   try {
