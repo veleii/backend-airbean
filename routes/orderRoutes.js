@@ -8,7 +8,7 @@ const router = Router();
 router.post("/order", authMiddleware, addOrder);
 
 //Hämta aktiv order
-router.get("/:id", authMiddleware, getOrderById);
+router.get("/:orderNr", authMiddleware, getOrderById);
 
 //Hämta orderhistorik
 router.get("/history", getOrderHistory);
