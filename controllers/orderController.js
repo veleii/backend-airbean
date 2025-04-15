@@ -60,10 +60,10 @@ export const getOrderById = async (req, res) => {
     const order = await fetchOrderById(orderNr);
     if (!order) return res.status(404).json({ error: "Ordern kunde inte hittas." });
     res.status(200).json({
-        success: true,
-        data: order,
+      success: true,
+      data: order,
     });
   } catch (error) {
-    res.status(500).json({ error: "Kunde inte hämta ordern."})
+    res.status(500).json({ error: "Kunde inte hämta ordern." });
   }
 };
