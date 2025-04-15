@@ -6,25 +6,19 @@ import { createUser, fetchUserByEmail } from "../models/userModel.js";
 
 //Skapa användare
 export async function addUser(req, res) {
-  const { error, value } = userSchema.validate(req.body);
-  if (error) {
-    const errors = error.details.map((err) => err.message);
-    return res.status(400).json({ errors });
-  }
-
   try {
-    const existingUser = await fetchUserByEmail(value.email);
+    const existingUser = await fetchUserByEmail(req.body.email);
     if (existingUser) {
       return res
         .status(409)
         .json({ error: "Denna e-postadress finns redan registrerad" });
     }
 
-    const hashedPassword = await bcrypt.hash(value.password, 10);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
     const user = {
       id: uuidv4(),
-      ...value,
+      ...req.body,
       password: hashedPassword,
       createdAt: new Date().toISOString(),
     };
@@ -74,8 +68,3 @@ export const loginUser = async (req, res) => {
   }
 };
 
-//Hämta aktiv order
-export const getCurrentOrder = async (req, res) => {
-  try {
-  } catch (error) {}
-};
