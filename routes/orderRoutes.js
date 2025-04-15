@@ -13,6 +13,6 @@ router.post("/order", authMiddleware, validateMiddleware(orderSchema),addOrder);
 router.get("/history", authMiddleware, getOrderHistory);
 
 //Hämta aktiv order
-router.get("/:orderNr", authMiddleware, validateMiddleware(orderIdSchema), getOrderById);
+router.get("/:orderNr", authMiddleware, validateMiddleware(orderIdSchema, "params"), getOrderById);
 
 export default router;

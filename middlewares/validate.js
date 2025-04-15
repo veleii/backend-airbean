@@ -1,5 +1,5 @@
-export const validate = (schema, property = "body") => {
-  return (res, req, next) => {
+const validate = (schema, property = "body") => {
+  return (req, res, next) => {
     const { error } = schema.validate(req[property]);
     if (error) {
       const errors = error.details.map((detail) => detail.message);
@@ -8,3 +8,5 @@ export const validate = (schema, property = "body") => {
     next();
   };
 };
+
+export default validate

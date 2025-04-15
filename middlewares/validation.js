@@ -23,7 +23,7 @@ export const orderItemSchema = joi.object({
 });
 
 export const orderSchema = joi.object({
-  totalOrder: joi.array().items(orderItemSchema).min(1).required.messages({
+  totalOrder: joi.array().items(orderItemSchema).min(1).required().messages({
     "array.base": "Ordern måste vara en array.",
     "array.min": "Ordern får inte vara tom.",
     "any.required": "Order-array är obligatorisk.",

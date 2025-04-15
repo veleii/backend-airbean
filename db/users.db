@@ -2,4 +2,5 @@
 {"id":"195e5e5b-7efe-47c5-a00d-21235d418251","name":"Test Testsson","password":"$2b$10$Ct0DrLu7DZo77GIbPFiJZuePJVHYOf39t5gTpqLqOnOKvSymU.BdK","email":"test@test.com","createdAt":"2025-04-15T09:32:18.432Z","_id":"bJnXk2J1p112xG8q"}
 {"id":"dd4807bb-4496-462c-863a-adc50d00f966","name":"Lisa","email":"lisa@hotmail.com","password":"hejhej123","createdAt":1744364634919,"_id":"l72EIPZjo8Wdq27N"}
 {"id":"4e0d7629-e34c-482a-ac27-ad3995cb0337","name":"Lisa","email":"lisa@hotmail.com","password":"hejhej123","createdAt":"2025-04-11T09:47:46.103Z","_id":"nHaK2Ef0Zjvygsiu"}
+{"id":"541fb6f7-6804-4d7b-ace8-3626665c17ca","email":"hej@hejsan.com","password":"$2b$10$L6EAZ12smbGOsxtJ39P0B./XdQhC1MWPlD.6fbS.K/SN9lxAhsbiS","createdAt":"2025-04-15T11:01:15.965Z","_id":"uuabMXScscE9Qj5O"}
 {"id":"6b429c40-b845-43bd-8e91-e93cc77dea22","name":"Lisa","email":"lisa@hotmail.com","password":"hejhej123","createdAt":1744364803955,"_id":"wu28b3YCrjsYYfmK"}
