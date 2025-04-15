@@ -11,16 +11,3 @@ export const createUser = async (user) => {
 export async function fetchUserByEmail(email) {
     return await usersDB.findOne({ email })
 }
-
-
-export const fetchUser = async () => {
-
-}
-
-//Hämta aktiv order
-export const fetchCurrentOrder = async () => {
-
-}
-
-//Hämta orderhistorik
-export const fetchOrderHistory = async () => {}
