@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { createOrder, fetchOrderById } from "../models/orderModel.js";
+import { createOrder, fetchOrderById, fetchOrderHistory } from "../models/orderModel.js";
 import { fetchMenu } from "../models/productModel.js";
 
 //Skapa order
@@ -72,5 +72,19 @@ export const getOrderById = async (req, res) => {
 //Hämta orderhistorik för användare
 export const getOrderHistory = async (req, res) => {
   try {
-  } catch (error) {}
+    // Användarens id från auth-middleware
+    const userId = req.user.id;
+
+    // Hämtar ordrar från databasen för den inloggade användaren
+    const orders = await fetchOrderHistory(userId);
+
+    res.json({
+      success: true,
+      message: "Hämtning av orderhistorik lyckades.",
+      data: orders,
+    });
+  } catch (error) {
+    console.error("Fel vid hämtning av orderhistorik: ", error);
+    res.status(500).json({ error: "Kunde inte hämta orderhistorik." });
+  }
 };
