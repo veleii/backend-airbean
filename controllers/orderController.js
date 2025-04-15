@@ -29,11 +29,13 @@ export const addOrder = async (req, res) => {
         total: itemTotal,
       };
     });
+    const userId = req.user.id;
     const orderNr = uuidv4();
     const now = new Date();
     const eta = new Date(now.getTime() + 30 * 60000);
 
     const order = {
+      userId,
       orderNr,
       orderDate: now.toISOString(),
       ETA: eta.toISOString(),
@@ -54,6 +56,7 @@ export const addOrder = async (req, res) => {
     res.status(500).json({ error: "Kunde inte skapa order." });
   }
 };
+
 //Hämta order genom ID (och token)
 export const getOrderById = async (req, res) => {
   const { orderNr } = req.params;
