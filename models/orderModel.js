@@ -30,3 +30,13 @@ export const fetchOrderById = async (orderNr) => {
     throw new Error("Kunde inte hämta order: " + error.message);
   }
 };
+
+//Hämta alla ordrar för en användare 
+export const fetchOrderHistory = async (userId) => {
+  try {
+    const order = await orderDb.find({ userId });
+    return order;
+  } catch (error) {
+    throw new Error("Kunde inte hämta orderhistorik: " + error.message);
+  }
+}

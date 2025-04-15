@@ -11,6 +11,6 @@ router.post("/order", authMiddleware, addOrder);
 router.get("/:orderNr", authMiddleware, getOrderById);
 
 //Hämta orderhistorik
-router.get("/history", getOrderHistory);
+router.get("/history", authMiddleware, getOrderHistory);
 
 export default router;
