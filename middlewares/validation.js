@@ -16,7 +16,7 @@ export const orderItemSchema = joi.object({
     "number.base": "Id:t måste vara ett nummer",
     "any.required": "Id är obligatoriskt.",
   }),
-  quntity: joi.number().integer().min(1).default(1).optional().messages({
+  quantity: joi.number().integer().min(1).default(1).optional().messages({
     "number.base": "Quantity måste vara ett nummer",
     "number.min": "Antal måste vara minst 1.",
   }),
