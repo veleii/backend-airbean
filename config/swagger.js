@@ -1,10 +1,6 @@
-import { application, response } from "express";
-import { type } from "os";
-import { format } from "path";
-import { title } from "process";
 import swaggerJSDoc from "swagger-jsdoc";
 
-const swaggerDocument = {
+const swaggerDefinition = {
   openapi: "3.0.0",
   info: {
     title: "Airbean API",
@@ -336,7 +332,7 @@ const swaggerDocument = {
       get: {
         description: "Returnerar information om en order utifrån ordernummer",
         parameters: {
-            name: 'orderNr',
+          name: "orderNr",
           required: true,
           content: {
             "application/json": {
@@ -401,3 +397,9 @@ const swaggerDocument = {
     },
   },
 };
+
+const options = {
+    swaggerDefinition,
+    apis: []
+}
+export const swaggerDocs = swaggerJSDoc(options);
