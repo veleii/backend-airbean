@@ -185,29 +185,91 @@ const swaggerDefinition = {
                 },
               },
             },
-
-            Info: {
-              type: "object",
-              properties: {
-                title: {
-                  type: "string",
-                },
-                desc: {
-                  type: "string",
-                },
-                ownerName: {
-                  type: "string",
-                },
-                ownerTitle: {
-                  type: "string",
-                },
-                img: {
-                  type: "string",
+          },
+        },
+        required: ["success", "message", "data"],
+      },
+      OrderDetail: {
+        type: "object",
+        properties: {
+          success: { type: "boolean", example: true },
+          data: {
+            type: "object",
+            properties: {
+              userId: {
+                type: "string",
+                example: "123e4567-e89b-12d3-a456-426614174000",
+              },
+              orderNr: {
+                type: "string",
+              },
+              orderDate: {
+                type: "string",
+                format: "date-time",
+                example: "2025-04-15T07:32:05.903Z",
+              },
+              ETA: {
+                type: "string",
+                format: "date-time",
+                example: "2025-04-15T07:32:05.903Z",
+              },
+              delivered: {
+                type: "boolean",
+                example: "true",
+              },
+              totalPrice: {
+                type: "number",
+                example: "179",
+              },
+              totalOrder: {
+                type: "array",
+                items: {
+                  type: "object",
+                  properties: {
+                    productId: {
+                      type: "number",
+                      example: "1",
+                    },
+                    name: {
+                      type: "string",
+                      example: "Flat White",
+                    },
+                    quantity: {
+                      type: "number",
+                      example: "2",
+                    },
+                    price: {
+                      type: "number",
+                      example: "39",
+                    },
+                    total: {
+                      type: "number",
+                      example: "200",
+                    },
+                  },
                 },
               },
             },
           },
         },
+        required: ["success", "data"],
+      },
+      OrderHistory: {
+        type: "object",
+        properties: {
+          success: { type: "boolean", example: true },
+          message: {
+            type: "string",
+            example: "Hämtning av orderhistorik lyckades.",
+          },
+          data: {
+            type: "array",
+            items: {
+              $ref: "#/components/schemas/OrderDetail",
+            },
+          },
+        },
+        required: ["success", "message", "data"],
       },
       Info: {
         type: "object",
@@ -473,7 +535,7 @@ const swaggerDefinition = {
             content: {
               "application/json": {
                 schema: {
-                  $ref: "#/components/schemas/Orders",
+                  $ref: "#/components/schemas/OrderDetail",
                 },
               },
             },
@@ -492,23 +554,24 @@ const swaggerDefinition = {
         security: [{ bearerAuth: [] }],
         tags: ["Orders"],
         description: "Returnerar lista med specifik användares orderhistorik",
-        requestBody: {
-          required: true,
-          content: {
-            "application/json": {
-              schema: {
-                $ref: "#/components/schemas/Orders",
-              },
+        parameters: [
+          {
+            name: "Authorization",
+            in: "header",
+            required: true,
+            schema: {
+              type: "string",
+              example: "Bearer eyJhbGciOiJI…",
             },
           },
-        },
+        ],
         responses: {
           200: {
             description: "Lyckad hämtning av orderhistorik",
             content: {
               "application/json": {
                 schema: {
-                  $ref: "",
+                  $ref: "#/components/schemas/OrderHistory",
                 },
               },
             },
