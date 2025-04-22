@@ -12,12 +12,12 @@ const authMiddleware = (req, res, next) => {
   }
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET || "yourSecretKey")
-    req.user = decoded
-    next()
+    const decoded = jwt.verify(token, process.env.JWT_SECRET || "yourSecretKey");
+    req.user = decoded;
+    next();
   } catch (error) {
     console.error("Error vid token-verifiering: ", error);
-    return res.status(401).json({ error: "Ogiltig token."})
+    return res.status(401).json({ error: "Ogiltig token." });
   }
 };
 
